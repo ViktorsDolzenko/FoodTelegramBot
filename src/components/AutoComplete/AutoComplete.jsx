@@ -7,9 +7,9 @@ import Stack from '@mui/material/Stack';
 
 export default function AutoComplete({handleCallback}) {
     return (
-        <Stack spacing={3} sx={{ width: 500 }}>
+        <Stack spacing={3} sx={{ width: 500, background: "white" }}>
             <Autocomplete
-                sx={{ p: 2,}}
+                sx={{ p: 2, background: "white"}}
                 multiple
                 id="tags-filled"
                 options={products.map((option) => option.title)}
@@ -23,9 +23,9 @@ export default function AutoComplete({handleCallback}) {
                 }
                 renderInput={(params) => (
                     <TextField
+                        sx={{background: "white"}}
                         {...params}
                         required
-                        variant="filled"
                         label="Продукты"
                         placeholder="Выберите продукты"
                     />

@@ -32,13 +32,13 @@ const NewProduct = () => {
                id="title"
                label="Название блюда"
                onChange={(e) => setNewProductTitle(e.target.value)}
-               sx={{ m: 2,}}
+               sx={{ m: 2, background: "white"}}
            />
            <AutoComplete
                handleCallback={handleCallback}
                id="products"/>
            <TextField
-               sx={{ m: 2, width: 300}}
+               sx={{ m: 2, width: 300, background: "white"}}
                id="description"
                label="Дополнительная информация"
                onChange={(e) => setNewProductDescription(e.target.value)}
