@@ -20,7 +20,7 @@ const ProductList = () => {
             products: addedItems,
             queryId,
         }
-        fetch('http://localhost:8000', {
+        fetch('https://foodmakerbot-yfjxs.run-eu-central1.goorm.site/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
