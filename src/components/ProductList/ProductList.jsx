@@ -20,6 +20,7 @@ const ProductList = () => {
             products: addedItems,
             queryId,
         }
+        console.log('fetch',data)
         fetch('https://foodmakerbot-yfjxs.run-eu-central1.goorm.site/web-data', {
             method: 'POST',
             headers: {
@@ -52,9 +53,10 @@ const ProductList = () => {
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
-
+        console.log(newItems, alreadyAdded)
         if(alreadyAdded) {
             newItems = addedItems.filter(item => item.id !== product.id);
+            console.log(newItems, alreadyAdded)
         } else {
             newItems = [...addedItems, product];
         }
