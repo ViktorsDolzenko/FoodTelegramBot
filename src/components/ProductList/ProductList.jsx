@@ -60,6 +60,8 @@ const ProductList = () => {
             newItems = [...addedItems, product];
         }
 
+        console.log(addedItems),
+            console.log(newItems)
         setAddedItems(newItems)
 
         if(newItems.length === 0) {
