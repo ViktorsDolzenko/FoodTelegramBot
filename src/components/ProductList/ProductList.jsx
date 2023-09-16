@@ -17,7 +17,7 @@ const ProductList = () => {
 
     const onSendData = useCallback(() => {
         const data = {
-            products: addedItems.flat(),
+            products: addedItems,
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
         console.log(data);
