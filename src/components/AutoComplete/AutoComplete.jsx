@@ -9,7 +9,7 @@ export default function AutoComplete({handleCallback}) {
     return (
         <Stack spacing={3} sx={{ width: 300}}>
             <Autocomplete
-                sx={{ p: 2, background: "white"}}
+                sx={{ m: 2, background: "white"}}
                 multiple
                 id="tags-filled"
                 options={products.map((option) => option.title)}

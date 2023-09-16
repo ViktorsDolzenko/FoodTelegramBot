@@ -50,7 +50,7 @@ const NewProduct = () => {
            <div>
                {
                    newIngredients.map((item, index) => {
-                       return <div style={{display: 'flex', alignItems: 'center', marginLeft: 20}}><div style={{width: 70}}>{item}:</div> <TextField  onChange={(e) => handleQuantityChange(e, index)} sx={{m: 2}} id={`quantity-${index}`} label="Количество-Грамм"/></div>
+                       return <div style={{display: 'flex', alignItems: 'center', marginLeft: 20}}><div style={{width: 70}}>{item}:</div> <TextField sx={{background: "white"}}  onChange={(e) => handleQuantityChange(e, index)} sx={{m: 2}} id={`quantity-${index}`} label="Количество-Грамм"/></div>
                    })
                }
            </div>
