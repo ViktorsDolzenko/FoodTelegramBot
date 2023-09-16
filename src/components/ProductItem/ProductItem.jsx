@@ -11,7 +11,7 @@ const ProductItem = ({product, className, onAdd}) => {
     return (
         <div className={'product ' + className}>
             <div className={'title'}>{product.title}</div>
-            <div>Продукты: {product.products.join(', ')}</div>
+            <div>Продукты: {product.products.title.join(', ')}</div>
             <div className={'description'}>Доп.информация: {product.description}</div>
             <Button variant="contained" onClick={onAddHandler}>
                 Добавить в список
