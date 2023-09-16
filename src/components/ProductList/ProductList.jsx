@@ -18,9 +18,9 @@ const ProductList = () => {
     const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
-            queryId,
+            queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
-        console.log('fetch',data)
+        console.log(data);
         fetch('https://foodmakerbot-yfjxs.run-eu-central1.goorm.site/web-data', {
             method: 'POST',
             headers: {
@@ -53,15 +53,12 @@ const ProductList = () => {
     const onAdd = (product) => {
         const alreadyAdded = addedItems.find(item => item.id === product.id);
         let newItems = [];
-        console.log('new', newItems, 'already', alreadyAdded, 'product',product, 'added',addedItems)
         if(alreadyAdded) {
             newItems = addedItems.filter(item => item.id !== product.id);
         } else {
             newItems = [...addedItems, product];
         }
 
-        console.log(addedItems),
-            console.log(newItems)
         setAddedItems(newItems)
 
         if(newItems.length === 0) {
