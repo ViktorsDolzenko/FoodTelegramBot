@@ -16,24 +16,6 @@ const ProductList = () => {
     const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(() => {
-        let mergedArray = [];
-
-        for (let i = 0; i < addedItems.length; i++) {
-            mergedArray = addedItems.concat(addedItems[i]);
-        }
-        const uniqueItems = [];
-
-        mergedArray.forEach(item => {
-            const existingItem = uniqueItems.find(element => element.title === item.title);
-            if (existingItem) {
-                existingItem.quantity += item.quantity;
-            } else {
-                uniqueItems.push({ title: item.title, quantity: item.quantity });
-            }
-        });
-
-        console.log(uniqueItems);
-        return;
         const data = {
             products: addedItems,
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
