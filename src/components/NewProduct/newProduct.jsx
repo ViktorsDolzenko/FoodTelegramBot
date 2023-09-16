@@ -8,19 +8,29 @@ import {Link} from "react-router-dom";
 const NewProduct = () => {
     const [newProductTitle, setNewProductTitle] = useState('');
     const [newProductDescription, setNewProductDescription] = useState('');
-    const [newIngredients, setNewIngredients] = useState([])
+    const [newIngredients, setNewIngredients] = useState([]);
+    const [newProductObj, setNewProductObj] = useState([]);
     const foodListCollectionRef = collection(db, 'Products');
 
     const handleCallback = (childData) => {
         setNewIngredients(childData)
     }
 
+    const handleQuantityChange = (e, itemIndex) => {
+        const updatedProductObj = [...newProductObj];
+        updatedProductObj[itemIndex] = {
+            title: newIngredients[itemIndex],
+            quantity: e.target.value,
+        };
+        setNewProductObj(updatedProductObj);
+    };
+
     const addNewProduct = async () => {
         try {
             await addDoc(foodListCollectionRef, {
                 title: newProductTitle,
                 description: newProductDescription,
-                products: newIngredients
+                products: newProductObj
             })
         }catch (err) {console.error(err)}
     }
@@ -37,6 +47,13 @@ const NewProduct = () => {
            <AutoComplete
                handleCallback={handleCallback}
                id="products"/>
+           <div>
+               {
+                   newIngredients.map((item, index) => {
+                       return <div style={{display: 'flex', alignItems: 'center', marginLeft: 20}}><div style={{width: 70}}>{item}:</div> <TextField  onChange={(e) => handleQuantityChange(e, index)} sx={{m: 2}} id={`quantity-${index}`} label="Количество-Грамм"/></div>
+                   })
+               }
+           </div>
            <TextField
                sx={{ m: 2, width: 300, background: "white"}}
                id="description"

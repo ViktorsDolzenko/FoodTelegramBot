@@ -7,7 +7,7 @@ import Stack from '@mui/material/Stack';
 
 export default function AutoComplete({handleCallback}) {
     return (
-        <Stack spacing={3} sx={{ width: 500, background: "white" }}>
+        <Stack spacing={3} sx={{ width: 300}}>
             <Autocomplete
                 sx={{ p: 2, background: "white"}}
                 multiple
