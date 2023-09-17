@@ -99,7 +99,6 @@ const ProductList = () => {
         </div>
             <div>
                 <Button sx={{m: 2}} variant="contained"><Link style={{textDecoration: 'none', color: 'white'}} to='newProduct'>Создать новое блюдо</Link></Button>
-                <Button onClick={onSendData}>TEST</Button>
             </div>
             </>
     );
