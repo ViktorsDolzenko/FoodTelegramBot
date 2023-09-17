@@ -32,43 +32,49 @@ const NewProduct = () => {
                 description: newProductDescription,
                 products: newProductObj
             })
-        }catch (err) {console.error(err)}
+        } catch (err) {
+            console.error(err)
+        }
     }
 
     return (
-       <div>
-           <TextField
-               required
-               id="title"
-               label="Название блюда"
-               onChange={(e) => setNewProductTitle(e.target.value)}
-               sx={{ m: 2, background: "white"}}
-           />
-           <AutoComplete
-               handleCallback={handleCallback}
-               id="products"/>
-           <div>
-               {
-                   newIngredients.map((item, index) => {
-                       return <div style={{display: 'flex', alignItems: 'center', marginLeft: 20}}><div style={{width: 70}}>{item}:</div> <TextField sx={{background: "white"}}  onChange={(e) => handleQuantityChange(e, index)} sx={{m: 2}} id={`quantity-${index}`} label="Количество-Грамм"/></div>
-                   })
-               }
-           </div>
-           <TextField
-               sx={{ m: 2, width: 300, background: "white"}}
-               id="description"
-               label="Дополнительная информация"
-               onChange={(e) => setNewProductDescription(e.target.value)}
-               multiline
-               rows={3}
-           />
-        <Box sx={{m: 2}}>
-            <Button variant="contained" onClick={() => addNewProduct()} >Добавить новое блюдо</Button>
-        </Box>
-           <Box sx={{display: 'flex', m: 2}}>
-               <Button variant="contained"><Link to='/' style={{textDecoration: 'none', color: 'white'}}>Назад к списку блюд</Link></Button>
-           </Box>
-       </div>
+        <div>
+            <TextField
+                required
+                id="title"
+                label="Название блюда"
+                onChange={(e) => setNewProductTitle(e.target.value)}
+                sx={{m: 2, background: "white"}}
+            />
+            <AutoComplete
+                handleCallback={handleCallback}
+                id="products"/>
+            <div>
+                {
+                    newIngredients.map((item, index) => {
+                        return <div style={{display: 'flex', alignItems: 'center', marginLeft: 20}}>
+                            <div style={{width: 70}}>{item}:</div>
+                            <TextField sx={{background: "white", m: 2}} onChange={(e) => handleQuantityChange(e, index)}
+                                       id={`quantity-${index}`} label="Количество-Грамм"/></div>
+                    })
+                }
+            </div>
+            <TextField
+                sx={{m: 2, width: 300, background: "white"}}
+                id="description"
+                label="Дополнительная информация"
+                onChange={(e) => setNewProductDescription(e.target.value)}
+                multiline
+                rows={3}
+            />
+            <Box sx={{m: 2}}>
+                <Button variant="contained" onClick={() => addNewProduct()}>Добавить новое блюдо</Button>
+            </Box>
+            <Box sx={{display: 'flex', m: 2}}>
+                <Button variant="contained"><Link to='/' style={{textDecoration: 'none', color: 'white'}}>Назад к списку
+                    блюд</Link></Button>
+            </Box>
+        </div>
     );
 };
 
