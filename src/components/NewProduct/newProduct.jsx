@@ -3,7 +3,7 @@ import AutoComplete from "../AutoComplete/AutoComplete";
 import {Box, Button, TextField} from "@mui/material";
 import {db} from "../../firebase";
 import {addDoc, collection} from 'firebase/firestore'
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const NewProduct = () => {
     const [newProductTitle, setNewProductTitle] = useState('');
@@ -11,6 +11,7 @@ const NewProduct = () => {
     const [newIngredients, setNewIngredients] = useState([]);
     const [newProductObj, setNewProductObj] = useState([]);
     const foodListCollectionRef = collection(db, 'Products');
+    const navigate = useNavigate();
 
     const handleCallback = (childData) => {
         setNewIngredients(childData)
@@ -31,7 +32,7 @@ const NewProduct = () => {
                 title: newProductTitle,
                 description: newProductDescription,
                 products: newProductObj
-            })
+            }).then(() => navigate('/'))
         } catch (err) {
             console.error(err)
         }
@@ -55,7 +56,7 @@ const NewProduct = () => {
                         return <div style={{display: 'flex', alignItems: 'center', marginLeft: 20}}>
                             <div style={{width: 70}}>{item}:</div>
                             <TextField sx={{background: "white", m: 2}} onChange={(e) => handleQuantityChange(e, index)}
-                                       id={`quantity-${index}`} label="Количество-Грамм"/></div>
+                                       id={`quantity-${index}`} label="Количество/Грамм"/></div>
                     })
                 }
             </div>
