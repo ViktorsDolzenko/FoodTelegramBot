@@ -16,8 +16,22 @@ const ProductList = () => {
     const {tg, queryId} = useTelegram();
 
     const onSendData = useCallback(() => {
+        const getAllProducts = addedItems.map((item) => item.products).flat()
+        let uniqueItems = {};
+        getAllProducts.forEach(item => {
+            const title = item.title;
+            const quantity = Number(item.quantity);
+
+            if (title in uniqueItems) {
+               uniqueItems[title].quantity += quantity;
+            } else {
+                uniqueItems[title] = { title, quantity };
+            }
+        });
+            const allProducts = Object.values(uniqueItems)
         const data = {
             products: addedItems,
+            allProducts,
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
         console.log(data);
