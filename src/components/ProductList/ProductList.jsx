@@ -35,7 +35,7 @@ const ProductList = () => {
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
         console.log(data);
-        fetch('https://foodmakerbot-yfjxs.run-eu-central1.goorm.site/web-data', {
+        fetch('https://185.204.0.146/web-data', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
