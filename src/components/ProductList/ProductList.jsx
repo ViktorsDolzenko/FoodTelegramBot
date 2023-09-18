@@ -35,7 +35,7 @@ const ProductList = () => {
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
         console.log(data);
-        fetch('http://185.204.0.146:3000/web-data', {
+        fetch(`api/web-data`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
