@@ -36,7 +36,7 @@ const ProductList = () => {
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
         console.log(data);
-        axios.post('/api/', JSON.stringify(data),  {
+        axios.post('/api', JSON.stringify(data),  {
                 headers: {
                     'Content-Type': 'application/json'
                 }
