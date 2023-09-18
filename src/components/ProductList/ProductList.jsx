@@ -39,8 +39,8 @@ const ProductList = () => {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Referrer-Policy': 'unsafe_url'
             },
-            referrerPolicy: "unsafe_url",
             body: JSON.stringify(data)
         })
     }, [addedItems])
