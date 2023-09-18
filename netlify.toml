@@ -4,6 +4,9 @@
   status = 200
 
  [[redirects]]
-   from = "/api/*"
-   to = "http://159.89.188.76:3000/:splat 200"
+   from = "/api"
+   to = "http://159.89.188.76:3000"
    status = 200
+   force = true # COMMENT: ensure that we always redirect
+   headers = {X-From = "Netlify"}
+   signed = "API_SIGNATURE_TOKEN"
