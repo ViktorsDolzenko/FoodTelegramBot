@@ -7,6 +7,7 @@ import {db} from "../../firebase";
 import {getDocs, collection} from 'firebase/firestore'
 import {Button} from "@mui/material";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 
 const ProductList = () => {
@@ -35,14 +36,12 @@ const ProductList = () => {
             queryId: window.Telegram.WebApp.initDataUnsafe.query_id,
         }
         console.log(data);
-        fetch('http://185.204.0.146:3000/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Referrer-Policy': 'unsafe_url'
-            },
-            body: JSON.stringify(data)
-        })
+        axios.post('/api', JSON.stringify(data),  {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        )
     }, [addedItems])
 
     useEffect(() => {

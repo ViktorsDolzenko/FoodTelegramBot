@@ -1,2 +1,1 @@
-/apiredirect/* http://185.204.0.146:3000/web-data/:splat 200
-/* /index.html 200
+/api/* http://185.204.0.146:3000/web-data/:splat 200!
