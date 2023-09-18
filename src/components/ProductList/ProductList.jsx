@@ -40,6 +40,7 @@ const ProductList = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
+            referrerPolicy: "unsafe_url",
             body: JSON.stringify(data)
         })
     }, [addedItems])
